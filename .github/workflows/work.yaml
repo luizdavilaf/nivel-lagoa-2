@@ -2,7 +2,7 @@ name: Update and deploy
 
 on:    
     schedule:
-        - cron: '10,15,20,30,40,45,50,55 * * * *'  # Executar a cada 10 minutos
+        - cron: '00,10,20,30,40,50 * * * *'  # Executar a cada 10 minutos
     workflow_dispatch:
 # on:
 #     push:
