@@ -66,7 +66,7 @@ async function fetchAndProcessData(url) {
 
                         // Gerar gráfico com base nos últimos 30 registros
                         const last30Records = existingData.slice(0, existingData.length);
-                        console.log(last30Records)
+                        console.log(last30Records[last30Records.length - 1])
                         generateChart(last30Records);
                     });
             });
