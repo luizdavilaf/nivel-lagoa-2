@@ -11,6 +11,7 @@ on:
 
 jobs:
   update_and_deploy:
+    name: update the stite
     permissions:
         contents: write
     runs-on: ubuntu-latest
