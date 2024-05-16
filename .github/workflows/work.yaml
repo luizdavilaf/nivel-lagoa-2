@@ -40,6 +40,8 @@ jobs:
           git config --global user.email "luizdavilaf@gmail.com"
           git config --global user.name "Luiz DAvila"
           git add docs/grafico.png
+          git add dados.csv
+          git add docs/indes.html
           git commit -m "Update graph"
           git push
 
