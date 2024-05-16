@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Run script to fetch and process data
-        run: node script.js
+        run: node app.js
 
       - name: Move graph to output directory
         run: mv grafico.png docs/
