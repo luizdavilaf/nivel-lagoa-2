@@ -10,6 +10,7 @@
     "license": "MIT",
     "dependencies": {
         "axios": "^0.24.0",
+        "chart.js": "^2.9.4",
         "chartjs-node-canvas": "^3.0.1",
         "cheerio": "^1.0.0-rc.10",
         "csv-parser": "^3.0.0",
