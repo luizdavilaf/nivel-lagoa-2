@@ -1,12 +1,13 @@
 name: Update and deploy
 
-# on:
-#   schedule:
-#     - cron: '*/10 * * * *'  # Executar a cada 10 minutos
 on:
-    push:
-        branches:
-        - main
+    workflow_dispatch:
+    schedule:
+        - cron: '*/10 * * * *'  # Executar a cada 10 minutos
+# on:
+#     push:
+#         branches:
+#         - main
 
 jobs:
   update_and_deploy:
