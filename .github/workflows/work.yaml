@@ -30,19 +30,17 @@ jobs:
         run: node app.js
 
       - name: Move graph to output directory
-        run: mv grafico.png docs/
+        run: mv grafico.png docs/ || true  # Adicionado '|| true' para ignorar erro se o arquivo não existir
       - name: Move index.html to docs directory
-        run: mv index.html docs/
+        run: mv index.html docs/ || true  # Adicionado '|| true' para ignorar erro se o arquivo não existir
 
 
       - name: Commit and push changes
         run: |
           git config --global user.email "luizdavilaf@gmail.com"
           git config --global user.name "Luiz DAvila"
-          git add docs/grafico.png
-          git add dados.csv
-          git add docs/index.html
-          git commit -m "Update graph"
+          git add -A  # Adicionado para adicionar todos os arquivos modificados, incluindo os da pasta 'docs'
+          git diff-index --quiet HEAD || git commit -m "Update graph"  # Verifica se há alterações antes de commitar
           git push
 
       - name: Deploy to GitHub Pages
