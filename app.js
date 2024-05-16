@@ -7,6 +7,7 @@ const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 
 async function fetchAndProcessData(url) {
     try {
+        console.log('Extraindo dados da URL:', url	)
         const response = await axios.get(url);
         const html = response.data;
         const $ = cheerio.load(html);
