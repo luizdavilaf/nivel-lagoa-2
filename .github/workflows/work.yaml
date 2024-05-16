@@ -1,0 +1,47 @@
+name: Update and deploy
+
+# on:
+#   schedule:
+#     - cron: '*/10 * * * *'  # Executar a cada 10 minutos
+on:
+    push:
+        branches:
+        - main
+
+jobs:
+  update_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script to fetch and process data
+        run: node script.js
+
+      - name: Move graph to output directory
+        run: mv grafico.png docs/
+      - name: Move index.html to docs directory
+        run: mv index.html docs/
+
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add docs/grafico.png
+          git commit -m "Update graph"
+          git push
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
