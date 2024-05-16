@@ -39,8 +39,9 @@ jobs:
         run: |
           git config --global user.email "luizdavilaf@gmail.com"
           git config --global user.name "Luiz DAvila"
-          git add -A  # Adicionado para adicionar todos os arquivos modificados, incluindo os da pasta 'docs'
-          git diff-index --quiet HEAD || git commit -m "Update graph"  # Verifica se há alterações antes de commitar
+          git pull origin main
+          git add -A 
+          git diff-index --quiet HEAD || git commit -m "Update graph"
           git push
 
       - name: Deploy to GitHub Pages
