@@ -65,7 +65,7 @@ async function fetchAndProcessData(url) {
                         console.log('Dados atualizados e salvos em dados.csv com sucesso!');
 
                         // Gerar gráfico com base nos últimos 30 registros
-                        const last30Records = existingData.slice(200, existingData.length);
+                        const last30Records = existingData.slice(0, existingData.length);
                         console.log(last30Records[last30Records.length - 1])
                         generateChart(last30Records);
                     });
